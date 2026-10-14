@@ -1,0 +1,345 @@
+Task 1
+
+public class Product{
+    public static String[] item = new String[3];
+    public static int[] quan = new int[3];
+    public static int count = 0;
+    
+    public Product(String s, int n){
+        if(count<3){
+            item[count] = s;
+            quan[count++] = n;
+            System.out.println("Stored: "+s);
+        }
+        else{
+            System.out.println("Storage is full! Cannot add "+s);
+        }
+    }
+    
+    public static void displayProducts(){
+        System.out.println("=== Stored Products ===");
+        for(int i = 0; i<3; i++){
+            System.out.println(item[i]+" - Qty: "+quan[i]);
+        }
+    }
+    
+    public static void buy(String s, int n){
+        boolean found = false;
+        for(int i = 0; i<3; i++){
+            if(s.equals(item[i])){
+                found = true;
+                if(quan[i]>=n){
+                    System.out.println("Product Sold");
+                    quan[i] -= n;
+                }
+                else{
+                    System.out.println("Quantity low");
+                }
+            }
+        }
+        if(!found){
+            System.out.println("Product not found");
+        }
+    }
+}
+
+
+
+Task 2
+
+public class Character{
+    public static int ID = 1;
+    public static int kid = 0;
+    public static int teen = 0;
+    public static int adult = 0;
+    public static int cha = 0;
+    public static double totalH = 0.0;
+    public static String str;
+    public static int strH = 0;
+    
+    public String name;
+    public int id;
+    public String grp;
+    public int h;
+    
+    public Character(String s1, String s2, int n){
+        name = s1;
+        grp = s2;
+        h = n; 
+        id = ID++;
+        totalH += n;
+        cha++;
+        if(s2.equals("Kid")){
+            kid++;
+        }
+        else if(s2.equals("Teen")){
+            teen++;
+        }
+        else{
+            adult++;
+        }
+        if(n>strH){
+            strH = n;
+            str = s1;
+        }
+    }
+    
+    public Character(String s, int n){
+        this(s, "Teen", n);
+    }
+    
+    public void printDetails(){
+        System.out.println("ID: "+id+", Name: "+name);
+        System.out.println("Group: "+grp);
+        System.out.println("Health: "+h);
+    }
+    
+    public static void printStats(){
+        System.out.println("Total Character: "+cha);
+        System.out.println("Kids: "+kid);
+        System.out.println("Teens: "+teen);
+        System.out.println("Adults: "+adult);
+        if(kid == 0 && teen == 0 && adult == 0){
+            System.out.println("Average Health: 0");
+        }
+        else{
+            System.out.println("Average Health: "+totalH/cha);
+        }
+        if(kid == 0 && teen == 0 && adult == 0){
+            System.out.println("Strongest Character: None");
+        }
+        else{
+            System.out.println("Strongest Character: "+str+" (Health "+strH+")");
+        }
+    }
+}
+
+
+Task 3
+
+public class Artifact {
+    private static Artifact[] vault = new Artifact[4];
+    private static int count = 0;
+    
+    private String name;
+    private String addedby;
+    private int power;
+    
+    public Artifact(String s1, String s2){
+        name = s1;
+        addedby = s2;
+        power = calculatePower(name);
+    }
+    public Artifact(String s){
+        this(s, "Okabe");
+    }
+    
+    public String GetName(){
+        return name; 
+    }
+    public int CalcPower(){
+        return power;
+    }
+    
+    public int calculatePower(String s){
+        int sum = 0;
+        int len = s.length();
+        if(len % 2 == 0){
+            for(int i = 0; i < len; i += 2){
+                sum += s.charAt(i);
+            } 
+        } 
+        else {
+            for(int i = 1; i < len; i += 2){
+                sum += s.charAt(i);
+            }
+        }
+        return sum;
+    }
+    
+    public static void AddtoVault(Artifact obj){
+        if (count<4) {
+            vault[count] = obj;
+            count++;
+            System.out.println(obj.addedby+ " added " +obj.name+ " successfully to the vault.");
+        } 
+        else {
+            System.out.println("!! " +obj.addedby+ " unsuccessful in adding artifact to the vault!!");
+        }
+    }
+    
+    public static void labReport(){
+        System.out.println("=== Future Gadget Lab ===");
+        for (int i = 0; i<count; i++) {
+            System.out.println(vault[i].name + " added by " + vault[i].addedby + " has power of " + vault[i].power + ".");
+        }
+    }
+    
+    public static String strongest(){
+        Artifact strongest = vault[0];
+        for (int i = 1; i<count; i++){
+            if (vault[i].power>strongest.power){
+                strongest = vault[i];
+            }
+        }
+        return strongest.name;
+    }
+    
+    public void changeName(String s){
+        name = s;
+        power = calculatePower(s);
+        System.out.println("Name changed and power recalculated.");
+    }
+    
+    public void revealArtifact(){
+        System.out.println(name + " added by " + addedby + " has power of " + power + ".");
+    }
+}
+
+
+Task 4
+
+public class Animalkeepers{
+    public static String[] Animals = {"Lion", "Tiger", "Seal", "Gorilla", "Deer"};
+    public static String[] tasks = new String[5];
+    private static int ID = 101;
+    public static int kpr = 0;
+    
+    public String name;
+    public int id;
+    
+    public Animalkeepers(String s){
+        name = s;
+        id = ID++;
+        kpr++;
+        System.out.println(s+" with ID "+id+" got the job!");
+    }
+    
+    public void doTask(String s, String n){
+        boolean found = false;
+        for(int i = 0; i<5; i++){
+            if(Animals[i].equals(s)){
+                tasks[i] = n+" (keeper - "+name+")";
+                found = true;
+                System.out.println("Task assigned to "+name);
+            }
+        }
+        if(!found){
+            System.out.println("Animal not found in Safari");
+        }
+    }
+    
+    public static void printTasks(){
+        boolean found = false;
+        for(int i = 0; i<5; i++){
+            if(tasks[i] != null){
+                found = true;
+                break;
+            }
+        }
+        if(found){
+            for(int i = 0; i<5; i++){
+                if(tasks[i] != null){
+                    System.out.println(tasks[i]+" === "+Animals[i]);
+                }
+            }
+        }
+        else{
+            System.out.println("No tasks assigned");
+        }
+    }
+    
+    public static void details(){
+        if(kpr == 0){
+            System.out.println("No Animal Keepers working yet.");
+        }
+        else{
+            System.out.println("Total Animal Keeper: "+kpr);
+            int task = 0;
+            for(int i = 0; i<5; i++){
+                if(tasks[i] != null){
+                    task++;
+                }
+            }
+            System.out.println("Total Tasks assigned: "+task);
+            for(int i = 0; i<5; i++){
+                if(tasks[i] != null){
+                    System.out.println(tasks[i]+" === "+Animals[i]);
+                }
+            }
+        }
+    }
+}
+
+
+
+Task 5
+
+Organizer Class:
+
+public class Organizer{
+    public String name;
+    public Event[] evnt = new Event[4];
+    public int count = 0;
+    
+    public Organizer(){
+        System.out.println("Please provide the organizer's name");
+    }
+    
+    public Organizer(String s){
+        name = s;
+    }
+    
+    public void organizeEvent(Event obj){
+        evnt[count++] = obj;
+        System.out.println(name+" successfully organized "+obj.getName());
+    }
+    
+    public void searchEventByDate(String s){
+        boolean found = false;
+        for(int i = 0; i<count; i++){
+            if(evnt[i].date.equals(s)){
+                System.out.println(evnt[i].getName());
+                found = true;
+            }
+        }
+        if(!found){
+            System.out.println("No event is scheduled for "+s);
+        }
+    }
+}
+
+Event Class:
+
+public class Event{
+    private String name;
+    public String date;
+    
+    public static Event[] ev = new Event[5];
+    public static int totalev = 0;
+    
+    
+    public String getName(){
+        return name;
+    }
+    
+    public Event(String s1, String s2){
+        name = s1;
+        date = s2;
+        ev[totalev++] = this;
+    }
+    
+    public String details(){
+        return "Name: "+name+"\nDate: "+date;
+    }
+    
+    public static void allEventInfo(){
+        System.out.println("Total Events: "+totalev);
+        System.out.println("Event Details: ");
+        for(int i = 0; i<totalev; i++){
+            System.out.println("Event "+(i+1)+":");
+            System.out.println(ev[i].details());
+        }
+    }
+}
+

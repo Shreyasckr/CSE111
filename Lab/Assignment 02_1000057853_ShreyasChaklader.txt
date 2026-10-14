@@ -1,0 +1,141 @@
+Task 1
+
+public class ImaginaryNumber{
+    public int realPart;
+    public int imaginaryPart;
+    
+    public String printNumber(){
+        return realPart + " + " + imaginaryPart + "i";
+    }
+}
+
+
+Task 2
+
+public class Assignment{
+    public int tasks;
+    public String difficulty;
+    public boolean submission;
+    
+    public void printDetails(){
+        System.out.println("Number of tasks: "+tasks);
+        System.out.println("Difficulty level: "+difficulty);
+        System.out.println("Submission required: "+submission);
+    }
+    
+    public String makeOptional(){
+        if(submission){
+            submission = false;
+            return "Assignment will not require submission";
+        }
+        else{
+            return "Submission is already not required";
+        }
+    }
+}
+
+
+Task 3
+
+public class Employee{
+    public String name;
+    public double salary = 30000.0;
+    public String designation = "junior";
+    
+    public void newEmployee(String s){
+        name = s;
+    }
+    
+    public void displayInfo(){
+        System.out.println("Employee Name: "+name);
+        System.out.println("Employee Salary: "+salary+" Tk");
+        System.out.println("Employee Designation: "+designation);
+    }
+    
+    public void calculateTax(){
+        if(salary>50000.0){
+            double tax = salary*0.3;
+            System.out.println(name + " Tax Amount: " + tax + " Tk");
+        }
+        else if(salary>30000.0){
+            double tax = salary*0.1;
+            System.out.println(name + " Tax Amount: " + tax + " Tk");
+        }
+        else{
+            System.out.println("No need to pay tax");
+        }
+    }
+    
+    public void promoteEmployee(String s){
+        if(s.equals("manager")){
+            designation = "manager";
+            salary = this.salary + 75000;
+            System.out.println(name+" has been promoted to "+designation);
+            System.out.println("New Salary: "+salary+" Tk");
+        }
+        if(s.equals("lead")){
+            designation = "lead";
+            salary = this.salary + 50000;
+            System.out.println(name+" has been promoted to "+designation);
+            System.out.println("New Salary: "+salary+" Tk");
+        }
+        if(s.equals("senior")){
+            designation = "senior";
+            salary = this.salary + 25000;
+            System.out.println(name+" has been promoted to "+designation);
+            System.out.println("New Salary: "+salary+" Tk");
+        }
+    }
+}
+
+
+Task 4
+
+
+public class MobilePhone{
+    public int concap;
+    public int count = 0;
+    public String[] name;
+    public int[] num;
+    
+    public void setContactCapacity(int n){
+        concap = n;
+        name = new String[n];
+        num = new int[n];
+    }
+    
+    public void addContact(String s, int n){
+        if(count<=concap-1){
+            name[count] = s;
+            num[count] = n;
+            count++;
+            System.out.println("The contact of " + s + " is added.");
+        }
+        else{
+            System.out.println("Storage Full!!");
+        }
+    }
+    
+    public void details(){
+        System.out.println("Total Contacts: "+count);
+        System.out.println("Contact List:");
+        if(count>0){
+            for(int i = 0; i<count; i++){
+                System.out.println(name[i] + ":" + num[i]);
+            }
+        }
+    }
+    
+    public void makeCall(int n){
+        boolean found = false;
+        for(int i = 0; i<count; i++){
+            if(num[i]==n){
+                found = true;
+                System.out.println("Calling "+name[i]+" . . .");
+            }
+        }
+        if(!found){
+            System.out.println("Calling "+n+" . . .");
+        } 
+    }
+}

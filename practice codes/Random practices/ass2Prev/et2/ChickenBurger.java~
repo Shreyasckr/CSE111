@@ -1,0 +1,35 @@
+public class ChickenBurger{
+    public String bun = "Sesame";
+    public int price = 200;
+    public String sauceOption = "less";
+    public String spiceLevel = "Not Set";
+    String[] splvl = {Mild, Spicy, Naga, Extreme};
+    
+    public String serveBurger(){
+        if(spiceLevel.equals("Not Set")){
+            return "Cannot serve now. Customize Spice Level first.";
+        }
+        else{
+            return "Bun Type: " + bun;
+            return "Price: " + price;
+            return "Sauce Option: " + sauceOption;
+            return "Spice Level: " + spiceLevel;
+        }
+    }
+    
+    public String customizeSpiceLevel(String s){
+        boolean found = false;
+        for(int i = 0; i < splvl.length; i++){
+            if(splvl[i].equals(s)){
+                found = true;
+            }
+        }
+        if(found){
+            spiceLevel = s;
+            return "Spice level set to "+s+".";
+        }
+        else{
+            return "This spice level is unavailable.";
+        }
+    }
+}

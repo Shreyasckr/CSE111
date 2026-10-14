@@ -1,0 +1,24 @@
+public class Laptop{
+    public String name;
+    public String proc;
+    public String str;
+    private String con = "good";
+    
+    public Laptop(String s1, String s2, String s3){
+        name = s1;
+        proc  = s2;
+        str = s3;
+    }
+    
+    public String getcon(){
+        return con;
+    }
+    
+    public void markDeffective(){
+        con = "defective";
+    }
+    
+    public String details(){
+        return name+"-"+proc+"-"+str+"-Condition: "+con;
+    }
+}

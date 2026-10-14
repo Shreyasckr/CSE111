@@ -1,0 +1,42 @@
+public class SultansDine{
+    public static int branch = 0;
+    public static int sell = 0;
+    public static SultansDine[] brns = new SultansDine[3];
+    
+    public String name;
+    public int bsell = 0;
+    public double per = 0.0;
+    
+    public SultansDine(String s){
+        name = s;
+        brns[branch++] = this;
+    }
+    
+    public void sellQuantity(int n){
+        if(n<10){
+            bsell += n*300;
+        }
+        else if(n<20){
+            bsell += n*350;
+        }
+        else{
+            bsell += n*400;
+        }
+        sell += bsell;
+    }
+    
+    public void branchInformation(){
+        System.out.println("Branch Name: "+name);
+        System.out.println("Branch Sell: "+bsell+" Taka");
+    }
+    
+    public static void details(){
+        System.out.println("Total Number of branch(s): "+branch);
+        System.out.println("Total Sell: "+sell+" Taka");
+        for(int i = 0; i<branch; i++){
+            per = (sell/brsl[i].bsell)*100;
+            System.out.println("Branch Name: "+brns[i].name+", Branch Sell: "brns[i].bsell+" Taka");
+            System.out.println("Branch consists of total sell's "+per);
+        }
+    }
+}

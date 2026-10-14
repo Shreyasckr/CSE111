@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class cfProb28{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        for(int i = 0; i<n; i++){
+            int res = 0;
+            int m = sc.nextLong()
+                if(m<3){
+                System.out.println(res);
+            }
+            else{
+                for(int b = 0; b<m; b++){
+                    for(int a = 0; a<m; a++){
+                        if(a>1 && b>1 && a+b==m && a>b){
+                            res++;
+                        }
+                    }
+                }
+                System.out.priintln(res);
+            }
+        }
+    }
+}

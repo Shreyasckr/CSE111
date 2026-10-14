@@ -1,0 +1,16 @@
+public class Car extends Vehicle {
+    private int doors;
+    private boolean autoPilot;
+
+    public Car(String b, String model, int y, int w, int doors, boolean autoPilot) {
+        super(b, y);
+        setWheels(w);
+        this.doors = doors;
+        this.autoPilot = autoPilot;
+    }
+
+    public void startAutoPilot() {
+        if (autoPilot) System.out.println("Autopilot started for " + getBrand() + ".");
+        else System.out.println("No autopilot feature for " + getBrand() + ".");
+    }
+}

@@ -1,0 +1,76 @@
+import java.util.Arrays;
+public class Student{
+    public int id;
+    public double cg = 0.0;
+    public String[] krs;
+    public int count;
+    
+    public Student(int n){
+        id = n;
+        System.out.println("A student with id "+id+" has been created");
+    }
+    
+    public Student(int n, double d){
+        id = n;
+        cg = d;
+        System.out.println("A student with id "+id+"and cgpa "+cg+" has been created");
+    }
+    
+    public void storeCG(double n){
+        cg = n;
+    }
+    
+    public void addCourse(String s){
+        if(cg==0.0){
+            System.out.println("Failed to add course. Set CG first");
+        }
+        else if(cg>=3.0){
+            if(count<4){
+                krs = new String[4];
+                krs[count] = s;
+                System.out.println("added"+s);
+            }
+            else{
+                System.out.println("failed to add"+s);
+            }
+        }
+        else{
+            if(count<3){
+                krs = new String[3];
+                krs[count] = s;
+                System.out.println("added"+s);
+            }
+            else{
+                System.out.println("cg is low cant add more than 3 courses");
+            }
+        }
+    }
+    
+    public void addCourse(String[] courses){
+        for (int i = 0; i < courses.length; i++) {
+            addCourse(courses[i]);
+        }
+    }
+    
+    public void removeAllCourse(){
+        for (int i = 0; i < courseCount; i++) {
+            courses[i] = null;
+        }
+        count = 0;
+        System.out.println("All the courses are removed.");
+    }
+    
+    public void showAdvise() {
+        System.out.println("Student ID: " + id + ", CGPA: " + cg);
+        if (count == 0) {
+            System.out.println("No courses added.");
+        } 
+        else {
+            System.out.println("Added courses are:");
+            for (int i = 0; i < count; i++) {
+                System.out.print(courses[i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}

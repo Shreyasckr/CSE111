@@ -1,0 +1,25 @@
+public class DeliveryTester {
+    public static void main(String[] args) {
+        Courier c1 = new Courier("TRK001", "Mirpur", 3.5);
+        Courier c2 = new Courier("TRK002", "Gulshan", 8.0);
+        Courier c3 = new Courier("TRK003", "Dhanmondi", 5.0);
+        Courier c4 = new Courier("TRK004", "Banani", 6.5);
+        Courier c5 = new Courier("TRK005", "Uttara", 7.0);
+        System.out.println("=====1=====");
+        Deliverer d1 = new Deliverer("Karim");
+        System.out.println("=====2=====");
+        d1.assign(c1);
+        d1.assign(c2);
+        System.out.println("=====3=====");
+        d1.viewRoute();
+        System.out.println("=====4=====");
+        Deliverer d2 = new Deliverer("Rahim");
+        d2.assign(c3);
+        d2.assign(c4);
+        d2.assign(c5);
+        System.out.println("=====5=====");
+        d2.viewRoute();
+        System.out.println("=====6=====");
+        Deliverer.compare(d1, d2);
+    }
+}

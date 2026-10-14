@@ -1,0 +1,43 @@
+public class Cart{
+    public String[] items = new String[5];
+    public int[] price = new int[5];
+    public int count = 0;
+    
+    public void storeProduct(String s, int n){
+        items[count] = s;
+        price[count] = n;
+        count++;
+    }
+    
+    public void storeProduct(String s, int n, String s2, int n2){
+        items[count] = s;
+        price[count] = n;
+        count++;
+        items[count] = s2;
+        price[count] = n2;
+        count++;
+    }
+    
+    public void info(){
+        System.out.println("cart Items:");
+        if(count==0){
+            System.out.println("Cart is empty");
+        }
+        else{
+            for(int i = 0; i<count; i++){
+                System.out.println(item[i]+" - "+price[i]);
+            }
+        }
+    }
+    
+    public void transferItem(Cart obj, String s){
+        for(int i = 0; i<obj.length; i++){
+            if(obj.items[i].equals(s)){
+                System.out.println("Item transferred successfully");
+                storeProduct(obj.items[i], obj.price[i]);
+                obj.items[i] = "";
+                obj.price[i] = 0;
+            }
+        }
+    }
+}

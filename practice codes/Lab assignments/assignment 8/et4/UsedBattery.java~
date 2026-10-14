@@ -1,0 +1,8 @@
+public class UsedBattery extends Waste{
+    public boolean leak;
+    
+    public UsedBattery(String s, boolean b){
+        super(s);
+        leak = b;
+    }
+}

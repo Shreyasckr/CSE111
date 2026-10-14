@@ -1,0 +1,23 @@
+public class Spaceship{
+    public String name;
+    public int capacity;
+    public int cWeight;
+    public String[] cargo = new String[5];
+    public int count = 0;
+    
+    public Spaceship(String s, int n){
+        name = s;
+        capacity = n;
+    }
+    
+    public void loadCargo(Cargo obj){
+        if(cWeight+obj.weight<capacity){
+            cWeight += obj.weight;
+            cargo[count++] = obj.name;
+        }
+        else{
+            int extra = (cWeight+obj.weight) - capacity;
+            System.out.println("Warning: Unable to load "+ obj.name +" inside "+name+". Exceeds capacity by "+extra+".");
+        }
+    }
+}

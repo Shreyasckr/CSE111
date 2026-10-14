@@ -1,0 +1,18 @@
+public class Phone{
+    public String brand = "Nokia";
+    public String color = "Blue";
+    public int price = 14000;
+    public void showDetails(){
+        System.out.println("Brand Name: "+ brand);
+        System.out.println("Color: "+ color);
+        System.out.println("Price: "+ price +" Taka");
+    }
+    public String increasePrice(int n){
+        price += n;
+        return "The price is updated";
+    }
+    public void changeBrandName(String str){
+    brand = str;
+    System.out.println("Brand name is changed to "+ str);
+    }
+}

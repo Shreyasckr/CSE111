@@ -1,0 +1,39 @@
+public class Student{
+    public String name;
+    public int id;
+    public double cg;
+    public String dept = "CSE";
+    
+    public static int ID = 1;
+    public static int cse = 0;
+    public static int other = 0;
+    
+    public Student(String s, double d){
+        name = s;
+        cg = d;
+        id = ID++;
+        cse++;
+    }
+    
+    public Student(String s, double d, String n){
+        name = s;
+        cg = d;
+        id = ID++;
+        dept = n;
+        other++;
+    }
+    
+    public void individualDetail(){
+        System.out.println("ID: "+id+"\nName: "+name+"\nCGPA: "+cg+"\nDepartment: "+dept);
+    }
+    
+    public static void printDetails(){
+        System.out.println("Total Students(s): "+(ID-1));
+        System.out.println("CSE Students(s): "+cse);
+        System.out.println("Other Department Students(s): "+other);
+    }
+    
+    public static Student createStudent(String s, double d){   //###
+        return new Student(s, d); //###
+    }
+}

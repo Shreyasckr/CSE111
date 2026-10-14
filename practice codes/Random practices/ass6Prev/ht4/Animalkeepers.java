@@ -1,0 +1,71 @@
+public class Animalkeepers{
+    public static String[] Animals = {"Lion", "Tiger", "Seal", "Gorilla", "Deer"};
+    public static String[] tasks = new String[5];
+    private static int ID = 101;
+    public static int kpr = 0;
+    
+    public String name;
+    public int id;
+    
+    public Animalkeepers(String s){
+        name = s;
+        id = ID++;
+        kpr++;
+        System.out.println(s+" with ID "+id+" got the job!");
+    }
+    
+    public void doTask(String s, String n){
+        boolean found = false;
+        for(int i = 0; i<5; i++){
+            if(Animals[i].equals(s)){
+                tasks[i] = n+" (keeper - "+name+")";
+                found = true;
+                System.out.println("Task assigned to "+name);
+            }
+        }
+        if(!found){
+            System.out.println("Animal not found in Safari");
+        }
+    }
+    
+    public static void printTasks(){
+        boolean found = false;
+        for(int i = 0; i<5; i++){
+            if(tasks[i] != null){
+                found = true;
+                break;
+            }
+        }
+        if(found){
+            for(int i = 0; i<5; i++){
+                if(tasks[i] != null){
+                    System.out.println(tasks[i]+" === "+Animals[i]);
+                }
+            }
+        }
+        else{
+            System.out.println("No tasks assigned");
+        }
+    }
+    
+    public static void details(){
+        if(kpr == 0){
+            System.out.println("No Animal Keepers working yet.");
+        }
+        else{
+            System.out.println("Total Animal Keeper: "+kpr);
+            int task = 0;
+            for(int i = 0; i<5; i++){
+                if(tasks[i] != null){
+                    task++;
+                }
+            }
+            System.out.println("Total Tasks assigned: "+task);
+            for(int i = 0; i<5; i++){
+                if(tasks[i] != null){
+                    System.out.println(tasks[i]+" === "+Animals[i]);
+                }
+            }
+        }
+    }
+}

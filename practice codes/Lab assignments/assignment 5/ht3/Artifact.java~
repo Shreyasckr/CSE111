@@ -1,0 +1,75 @@
+public class Artifact{
+    private static String[] art = new String[4];
+    private static String[] ppl = new String[4];
+    private static int artifacts = 0;
+    private static String strongest;
+    private static int str = 0;
+    
+    private String name;
+    private String addedby;
+    private int power = 0;
+    
+    public String GetName(){
+        return name;
+    }
+    public void changeName(String s){
+        name = s;
+        power = CalcPower();
+    } 
+    
+    public Artifact(String s1, String s2){
+        name = s1;
+        addedby = s2;
+        power = CalcPower();
+        if(power>str){
+            strongest = name;
+            str = power;
+        }
+    }
+    public Artifact(String s1){
+        this(s1, "Okabe");
+    }
+    
+    public void revealArtifact(){
+        System.out.println(name+" added by "+addedby+" has a power of "+CalPower());
+    }
+    
+    public void CalcPower(){
+        if(name.length()%2 == 0){
+            for(int i = 0; i<=name.length(); i+=2){
+                char c = name.charAt(i);
+                power += c;
+            }
+            System.out.println(power);
+        }
+        else{
+            for(int i = 1; i<=name.length(); i+=2){
+                char c = name.charAt(i);
+                power += c;
+            }
+            System.out.println(power);
+        }
+    }
+    
+    public static void AddtoVault(Artifact obj){
+        if(artifacts<4){
+            art[artifacts] = obj.name;
+            ppl[artifacts++] = obj.addedby;
+            System.out.println(obj.addedby+" added "+obj.name+" successfully to the vault.");
+        }
+        else{
+            System.out.println("!!"+obj.name+" unsuccessful in adding artifact to the vault!!");
+        }
+    }
+    
+    public static void strongest(){
+        System.out.println(strongest);
+    }
+    
+    public static void labReport(){
+        System.out.println("=== Future Gadget Lab ===");
+        for(int i = 0; i<4; i++){
+            System.out.println(art[i]+" added by "+ppl[i]+" has a power of "+power);
+        }
+    }
+}

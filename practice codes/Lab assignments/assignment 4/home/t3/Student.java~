@@ -1,0 +1,27 @@
+public class Student{
+    public String name;
+    public int id;
+    public String email="";
+    private String pass="";
+    private boolean sta = false;
+    public String dept;
+    
+    public Student(String s, int n, String z){
+        name = s;
+        id = n;
+        dept = z;
+        System.out.println("Student object is created");
+    }
+    
+    public void setPassword(String s){
+    pass = s;
+    }
+    
+    public String getPass(){
+    return pass;
+    }
+    
+    public String getSta(){
+    return Sta;
+    }
+}

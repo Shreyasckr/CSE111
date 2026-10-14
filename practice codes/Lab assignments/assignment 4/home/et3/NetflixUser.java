@@ -1,0 +1,54 @@
+public class NetflixUser{
+    public String name;
+    public String sub = "Free";
+    public Movie[] movie = new Movie[3];
+    public int count;
+    
+    public NetflixUser(String s1, String s2){
+        name = s1;
+        sub = s2;
+        System.out.println("New user account created!");
+    }
+    
+    public NetflixUser(String s1){
+        name = s1;
+        System.out.println("New user account created!");
+    }
+    
+    public void upgradePlan(){
+        if(sub.equals("Premium")){
+            System.out.println("You already have premium.");
+        }
+        else{
+            System.out.println("Welcome to netflix premium.");
+            sub = "Premium";
+        }
+    }
+    
+    public void addToFavourites(Movie obj){
+        if(sub.equals("Free")){
+            System.out.println("Cannot add movie to favourites. Please upgrade to premium.");
+        }
+        else{
+            if(count<3){
+                movie[count++] = obj;
+                System.out.println("Movie added to premium.");
+            }
+            else{
+                System.out.println("Cannot add new movie. Favourite list is full.");
+            }
+        }
+    }
+    
+    public void showFavourites(){
+        if(sub.equals("Free")){
+            System.out.println("No available favourites. Please upgrade to premium.");
+        }
+        else{
+            System.out.println("Showing "+name+"'s favourites: ");
+            for(int i = 0; i<count; i++){
+                System.out.println(movie[i].name+", "+movie[i].genre+", duration: "+movie[i].time);
+            }
+        }
+    }
+}

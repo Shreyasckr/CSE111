@@ -1,0 +1,81 @@
+public class Shop{
+    public String name = "Mega";
+    public int item;
+    public String[] itemName;
+    public int[] itemPrice;
+    public int items = 0;
+    
+    public Shop(String s, int n){
+        name = s;
+        item = n;
+        itemName = new String[n];
+        itemPrice = new int[n];
+        System.out.println(name+" shop created!");
+    }
+    
+    public Shop(int n){
+        item = n;
+        itemName = new String[n];
+        itemPrice = new int[n];
+        System.out.println(name+" shop created!");
+    }
+    
+    public void addItem(String s, int n){
+        if(items<item){
+            itemName[items] = s;
+            itemPrice[items] = n;
+            items++;
+        }
+        else{
+            System.out.println(s+", could not be added");
+        }
+    }
+    
+    public void addItem(Shop obj, String s){
+        boolean found = false;
+        int i = 0;
+        for(; i<obj.items; i++){
+            if(s.equals(obj.itemName[i])){
+                found = true;
+                break;
+            }
+        }
+        if(found){
+            itemName[items] = s;
+            itemPrice[items] = obj.itemPrice[i];
+            items++;
+        }
+        else{
+            System.out.println(s+", not found in "+obj.name);
+        }
+    }
+    
+    public void purchase(String s){
+        boolean found = false;
+        for(int i = 0; i<items; i++){
+            if(s.equals(itemName[i])){
+                found = true;
+            }
+        }
+        if(found){
+            System.out.println("Purchase Complete!");
+        }
+        else{
+            System.out.println(s+", is not available in this shop");
+        }
+    }
+    
+    public void info(){
+        System.out.println("Shope Name:"+name);
+        System.out.println("Item Details:");
+        if(items>0){
+            System.out.println(items+" / "+item);
+            for(int i = 0; i<items; i++){
+                System.out.println(itemName[i]+" - "+itemPrice[i]+" Tk");
+            }
+        }
+        else{
+            System.out.println("No items in shop");
+        }
+    }
+}

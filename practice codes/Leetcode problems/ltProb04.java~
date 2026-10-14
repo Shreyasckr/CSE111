@@ -1,0 +1,6 @@
+public class ltProb04{
+    public static void main(String[] args){
+        int[] array = {4, 2, 1, 3};
+        sort(array);
+    }
+}

@@ -1,0 +1,32 @@
+public class Bird{
+    public String name;
+    public int fly;
+    
+    public void makeNoise(){
+        if(name.equals("Parrot")){
+            System.out.println("Squawk");
+        }
+        else{
+            System.out.println("Squee");
+        }
+    }
+    
+    public void flyUp(int n){
+        fly += n;
+        System.out.println(name + " has flown up " + fly + " feet.");
+    }
+    
+    public void flyDown(int n){
+        if(fly-n==0){
+            System.out.println(name + " has flown down " + n + " feet and landed.");
+        }
+        else{
+            if(fly-n>0){
+                System.out.println(name + " has flown down " + n + " feet.");
+            }
+            else{
+                System.out.println(name + " cannot fly down " + n + " feet.");
+            }
+        }
+    }
+}

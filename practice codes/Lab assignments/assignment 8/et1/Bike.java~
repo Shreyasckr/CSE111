@@ -1,0 +1,11 @@
+public class Bike extends Vehicle {
+    private String model;
+    private boolean hasSidecar;
+
+    public Bike(String b, String model, int y, int w, boolean hasSidecar) {
+        super(b, y);
+        setWheels(w);
+        this.model = model;
+        this.hasSidecar = hasSidecar;
+    }
+}

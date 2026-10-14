@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class cfProb32{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] s = new Int[n];
+        int x = sc.nextInt();
+        for(int i = 0; i<n; i++){
+            s[i] = sc.nextInt();
+        }
+        for(int i = 0; i<n; i++){
+            if(s[i] == 1){
+                for(int j = i; j<i+x; j++){
+                    s[j] = 0;
+                }
+            }
+        }
+        boolean found = false;
+        for(int i = 0; i<n; i++){
+            if(s[i] == 1){
+                found = true;
+            }
+        }
+        if(found){
+            System.out.println("NO");
+        }
+        else{
+            System.out.println("YES");
+        }
+    }
+}

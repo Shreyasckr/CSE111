@@ -1,0 +1,25 @@
+public class Garage {
+    public Car[] cars;
+    public Bike[] bikes;
+    private int carCount = 0;
+    private int bikeCount = 0;
+
+    public Garage(int maxCars, int maxBikes) {
+        cars = new Car[maxCars];
+        bikes = new Bike[maxBikes];
+    }
+
+    public void addVehicle(Vehicle v) {
+        if (v instanceof Car) {
+            if (carCount < cars.length) {
+                cars[carCount] = (Car) v;
+                carCount++;
+            }
+        } else if (v instanceof Bike) {
+            if (bikeCount < bikes.length) {
+                bikes[bikeCount] = (Bike) v;
+                bikeCount++;
+            }
+        }
+    }
+}

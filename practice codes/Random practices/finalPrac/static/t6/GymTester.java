@@ -1,0 +1,47 @@
+public class GymTester {
+    public static void main(String[] args) {
+        System.out.println("Members: " + GymMember.memberCount);
+        System.out.println("Revenue: " + GymMember.totalRevenue);
+        System.out.println("=====1=====");
+        GymMember g1 = new GymMember("Rafi", "Bronze", 500.0);
+        GymMember g2 = new GymMember("Mim", "Silver", 800.0);
+        System.out.println("=====2=====");
+        g1.deposit(300.0);
+        g1.deposit(-50.0);
+        System.out.println("=====3=====");
+        g1.printInfo();
+        System.out.println("=====4=====");
+        g1.upgradeTier();
+        g1.printInfo();
+        System.out.println("=====5=====");
+        GymMember g3 = new GymMember("Tara", "Gold", 1200.0);
+        g3.upgradeTier();
+        System.out.println("=====6=====");
+        GymMember.summary();
+    }
+}
+
+
+//Members: 0
+//Revenue: 0.0
+//=====1=====
+//Rafi joined as Bronze member. Fee paid: 500.0
+//Mim joined as Silver member. Fee paid: 800.0
+//=====2=====
+//300.0 deposited to Rafi's account.
+//Invalid deposit.
+//=====3=====
+//Name: Rafi | Tier: Bronze | Balance: 300.0
+//=====4=====
+//Rafi upgraded to Silver!
+//Name: Rafi | Tier: Silver | Balance: 300.0
+//=====5=====
+//Tara joined as Gold member. Fee paid: 1200.0
+//Tara is already at the highest tier!
+//=====6=====
+//=== Gym Summary ===
+//Total Members: 3
+//Total Revenue: 2800.0
+//Bronze: 0
+//Silver: 2
+//Gold: 1

@@ -1,0 +1,50 @@
+public class Employee{
+    public String name;
+    public double salary = 30000.0;
+    public String designation = "junior";
+    
+    public void newEmployee(String s){
+        name = s;
+    }
+    
+    public void displayInfo(){
+        System.out.println("Employee Name: "+name);
+        System.out.println("Employee Salary: "+salary+" Tk");
+        System.out.println("Employee Designation: "+designation);
+    }
+    
+    public void calculateTax(){
+        if(salary>50000.0){
+            double tax = salary*0.3;
+            System.out.println(name + " Tax Amount: " + tax + " Tk");
+        }
+        else if(salary>30000.0){
+            double tax = salary*0.1;
+            System.out.println(name + " Tax Amount: " + tax + " Tk");
+        }
+        else{
+            System.out.println("No need to pay tax");
+        }
+    }
+    
+    public void promoteEmployee(String s){
+        if(s.equals("manager")){
+            designation = "manager";
+            salary = this.salary + 75000;
+            System.out.println(name+" has been promoted to "+designation);
+            System.out.println("New Salary: "+salary+" Tk");
+        }
+        if(s.equals("lead")){
+            designation = "lead";
+            salary = this.salary + 50000;
+            System.out.println(name+" has been promoted to "+designation);
+            System.out.println("New Salary: "+salary+" Tk");
+        }
+        if(s.equals("senior")){
+            designation = "senior";
+            salary = this.salary + 25000;
+            System.out.println(name+" has been promoted to "+designation);
+            System.out.println("New Salary: "+salary+" Tk");
+        }
+    }
+}

@@ -1,0 +1,49 @@
+public class AuctionItem{
+    public static double minBidIncrement = 50.0;
+    public static int total = 0;
+    public static double rev = 0.0;
+    
+    private String itemName;
+    private double currentBid;
+    private String highestBidder = "None";
+    private boolean sold = false;
+    
+    public AuctionItem(String s, double d){
+        itemName = s;
+        currentBid = d;
+        System.ou.println("Item: "+s+" | Starting Price: "+d+" | Status: Open");
+    }
+    
+    public void printInfo(){
+        System.out.println("Item: "+itemName+" | Current Bid: "+currentBid+" | Highest Bidder: "+highestBidder);
+    }
+    
+    public void bid(String s, double d){
+        if(!sold){
+            if(d>(currentBid+minBidIncrement)){
+                currentBid = d;
+                highestBidder = s;
+                System.out.println(s+" placed a bid of "+d+" on "+itemName);
+            }
+            else{
+                System.out.println("Bid too low! Minimum bid is "+(currentBid+minBidIncrement));
+            }
+        }
+        else{
+            System.out.println("Bidding closed for "+itemName);
+        }
+    }
+    
+    public void sell(){
+        sold = true;
+        total++;
+        rev += currentBid;
+        System.out.println(itemName+" sold to "+highestBidder+" for "+currentBid);
+    }
+    
+    public static void auctionSummary(){
+        System.out.println("=== Auction Summary ===");
+        System.out.println("Items Sold: "+total);
+        System.out.println("Total Revenue: "+rev);
+    }
+}

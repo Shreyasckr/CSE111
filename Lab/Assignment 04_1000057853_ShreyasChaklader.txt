@@ -1,0 +1,280 @@
+Task 1
+
+public class Triangle{
+    public int a;
+    public int b;
+    public int c;
+    public int p = a+b+c;
+    
+    public Triangle(int x, int y, int z){
+        a = x;
+        b = y;
+        c = z;
+        p = x+y+z;
+    }
+    
+    public void triangleDetails(){
+        System.out.println("Three sides of the triangle are: "+a+", "+b+", "+c);
+        System.out.println("Perimeter: "+p);
+    }
+    
+    public String printTriangleType(){
+        if(a==b && b==c){
+            return "This is an Equilateral Triangle.";
+        }
+        else if(a==b || b==c || c==a){
+            return "This is an Isosceles Triangle.";
+        }
+        else{
+            return "This is a Scalene Triangle.";
+        }
+    }
+    
+    public void compareTriangles(Triangle obj){
+        if(this == obj){
+            System.out.println("These two triangle objects have the same address.");    
+        }
+        else{
+            if(a==obj.a && b==obj.b && c==obj.c){
+                System.out.println("Addresses are different but the sides of the triangles are equal.");
+            }
+            else if(p==obj.p){
+                System.out.println("Only the perimeter of both triangles is equal.");
+            }
+            else{
+                System.out.println("Addresses, length of the sides and perimeter all are different.");
+            }
+        }
+    }
+}
+
+
+
+Task 2
+
+
+public class Player{
+    public String name;
+    public int hp = 100;
+    public String[] defeated = new String[5];
+    public int count = 0;
+    
+    public Player(String s, int n){
+        name = s;
+        hp = n;
+        System.out.println(s+" joined the game"+"\n"+"HP: "+n);
+    }
+    
+    public Player(String s){
+        name = s;
+        System.out.println(s+" joined the game"+"\n"+"HP: "+hp);
+    }
+    
+    public void defeatVillain(String s, int n){
+        if(hp<n){
+            System.out.println("failed to defeat "+s);
+        }
+        else{
+            System.out.println("defeated "+s);
+            hp += n;
+            defeated[count++] = s;
+        }
+    }
+    
+    public void defeatVillain(char c, String s, int n){
+        int boost = (c-'0');
+        hp *= boost;
+        System.out.println("HP with "+boost+"x boost: "+hp);
+        if(hp<n){
+            System.out.println("failed to defeat "+s);
+        }
+        else{
+            System.out.println("defeated "+s);
+            hp += n;
+            defeated[count++] = s;
+        }
+    }
+    
+    public void defeatVillain(Player obj){
+        if(hp<obj.hp){
+            System.out.println("failed to defeat "+obj.name);
+        }
+        else{
+            System.out.println("defeated "+obj.name);
+            hp += obj.hp;
+            defeated[count++] = obj.name;
+        }
+    }
+    
+    public void viewInfo(){
+        System.out.println("Player Name: "+name);
+        System.out.println("Current HP: "+hp);
+        if(count>0){
+            System.out.println("Defeated: ");
+            for(int i = 0; i<count; i++){
+                System.out.print(defeated[i]+", ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
+Task 3
+
+Student class:
+
+
+public class Student{
+    public String name;
+    public int id;
+    public String dept;
+    public String email = null; 
+    private String pass = null;
+    private boolean sta = false;
+    public String advisedCourses;
+
+    public Student(String s, int n, String z){
+        name = s;
+        id = n;
+        dept = z;
+        System.out.println("Student object is created");
+    }
+
+    public void setPassword(String s) {
+        pass = s;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setSta(boolean status) {
+        sta = status;
+    }
+
+    public boolean getSta() {
+        return sta;
+    }
+}
+
+
+Connect class:
+
+
+public class Connect{
+    public Student[] st = new Student[5];
+    public int totalAdvisee = 0;
+
+    public Connect(){
+        System.out.println("Connect is ready to use!");
+    }
+
+    public void login(Student obj){
+        if(obj.getPass() == null || obj.email == null){
+            System.out.println("Email and password need to be set.");
+        } 
+        else{
+            System.out.println("Login successful");
+            obj.setSta(true);
+        }
+    }
+
+    public void advising(Student obj){
+        if(!obj.getSta()){
+            System.out.println("Please login to advise courses!");
+        }
+        else{
+            System.out.println("You haven't selected any courses.");
+        }
+    }
+
+    public void advising(Student obj, String s1, String s2, String s3, String s4){
+        System.out.println("You need special approval to take more than 3 courses.");
+    }
+
+    public void advising(Student obj, String s1, String s2, String s3){
+        System.out.println("Advising successful!");
+        obj.advisedCourses = s1 + " " + s2 + " " + s3; 
+        st[totalAdvisee++] = obj;
+    }
+
+    public void allAdviseeInfo(){
+        System.out.println("Total Advisee: " + totalAdvisee);
+        for (int i = 0; i<totalAdvisee; i++){
+            Student s = st[i];
+            System.out.println("Name: " + s.name + " ID: " + s.id);
+            System.out.println("Department: " + s.dept);
+            System.out.println("Advised Courses:");
+            System.out.println(s.advisedCourses);
+            System.out.println("==============");
+        }
+    }
+}
+
+
+
+Task 4
+
+
+Spaceship class:
+
+
+public class Spaceship{
+    public String name;
+    public int capacity;
+    public int cWeight;
+    public String[] cargo = new String[5];
+    public int count = 0;
+    
+    public Spaceship(String s, int n){
+        name = s;
+        capacity = n;
+    }
+    
+    public void loadCargo(Cargo obj){
+        if(cWeight+obj.getWeight()<capacity){
+            cWeight += obj.getWeight();
+            cargo[count++] = obj.getName();
+        }
+        else{
+            int extra = (cWeight+obj.getWeight()) - capacity;
+            System.out.println("Warning: Unable to load "+ obj.getName() +" inside "+name+". Exceeds capacity by "+extra+".");
+        }
+    }
+    
+    public void displayDetails(){
+        System.out.println("Spaceship Name: "+name);
+        System.out.println("Capacity: "+capacity);
+        System.out.println("Current Cargo Weight: "+cWeight);
+        System.out.print("Cargo: ");
+        for(int i = 0; i<count; i++){
+            System.out.print(cargo[i]+" ");
+        }
+        System.out.println();
+    }
+}
+
+
+
+Cargo class:
+
+
+public class Cargo{
+    private String name;
+    private int weight;
+    
+    public Cargo(String s, int n){
+        name = s;
+        weight = n;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public int getWeight(){
+        return weight;
+    }
+}

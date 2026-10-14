@@ -1,0 +1,30 @@
+public class Employee{
+    public static Employee[] emply= new Employee[4];
+    public static int emp = 0;
+    
+    public String name;
+    public int id;
+    
+    public Employee(String s, int n){
+        name = s;
+        id = n;
+        emply[emp++] = this;
+    }
+    
+    public void details(){
+        System.out.println("Name: "+name);
+        System.out.println("ID: "+id);
+    }
+    
+    public static void allEmployeeInfo(){
+        System.out.println("Total Employee: "+emp);
+        System.out.println("Employee List:");
+        for(int i = 0; i<emp; i++){
+            emply[i].details();
+        }
+    }
+    
+    public static Employee createEmployee(String s, int n){
+        return new Employee(s, n);
+    }
+}

@@ -1,0 +1,91 @@
+Task 1
+
+import java.util.Scanner;
+public class assignment1task1{
+    public static void main(String[] args){
+        Scanner  sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+        int prime = 0;
+        for(int i = n;i<=m;i++){
+            int div = 0;
+            for(int j =2;j<n;j++){
+                if(i%j==0){
+                    div++;
+                }
+            }
+            if(div==0){
+                prime++;
+            }
+        }
+        System.out.println("There are "+prime+" prime numbers between "+n+" and "+m+".");
+    }
+}
+
+
+
+Task 2
+
+import java.util.Scanner;
+public class assignment1task2{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        String res = "";
+        char ch;
+        for(int i = 0 ; i < str.length() ; i++){
+            ch = str.charAt(i);
+            if(ch == 'a'){
+                res += 'z';
+            }
+            else{
+                res += (char)(ch-1);      
+            }
+        }
+        System.out.println(res);
+    }
+}
+
+
+
+
+Task 3
+
+import java.util.Scanner;
+public class assignment1task3{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("N = ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        boolean[] counted = new boolean[n];
+        for(int i = 0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        for(int i = 0; i<n; i++){
+            if(counted[i]){
+                continue;
+            }
+            else{
+                int count = 1;
+                for(int j = i + 1; j<n; j++){
+                    if(arr[i] == arr[j]) {
+                        counted[j] = true;
+                        count++;
+                    }
+                }
+                System.out.println(arr[i] + " - " + count + " times");
+            }
+        }
+    }
+}
+
+
+
+Task 4
+
+public class CSECourse{
+    public String courseName = "Programming Language II";
+    public String courseCode = "CSE111";
+    public int credit = 3;
+}

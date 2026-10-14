@@ -1,0 +1,21 @@
+public class Connect{
+    public int totalAdvisee = 0;
+    public Student[] st = new Student[5];
+    public Connect(){
+    System.out.println("Connect is ready to use!")
+    }
+    
+    public void login(Student obj){
+        if(obj.getPass().equals("") && obj.email.equals("")){
+        System.out.println("Email and password need to be set.");
+        }
+        else{
+        System.out.println("Login successful");
+        obj.sta = true;
+        }
+    }
+    
+    public void advising(Student obj){
+    if()
+    }
+}

@@ -1,0 +1,46 @@
+public class MagicPotion{
+    public String colour;
+    public int str;
+    public boolean act = false;
+    
+    public void activate(){
+        if(act == false){
+            if(str<5){
+                act = false;
+            }
+            else{
+                act = true;
+            }
+        }
+        else{
+            System.out.println("Already activated");
+        }
+    }
+    
+    public void setDetails(String s, int n){
+        colour = s;
+        str = n;
+    }
+    
+    public void describe(){
+        System.out.println("Potion colour: "+colour);
+        System.out.println("Potion strength: "+str);
+        System.out.println("Is active: "+act);
+    }
+    
+    public void boost(){
+        str++;
+    }
+    public void weaken(){
+        str--;
+    }
+    
+    public boolean isStrong(){
+        if(str>6){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}

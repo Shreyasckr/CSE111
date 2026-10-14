@@ -1,0 +1,19 @@
+import java.util.Scanner;
+public class fall24Q2{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int[] marks = {12,15,20,17,20,13};
+        int k = sc.nextInt();
+        int max = Integer.MIN_VALUE;
+        for(int i = 0; i<marks.length-k; i++){
+            int sum = 0;
+            for(int j = i; j<k; j++){
+                sum += marks[j];
+            }
+            if(sum/k > max){
+                max = sum/k;
+            }
+        }
+        System.out.println(max);
+    }
+}

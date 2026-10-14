@@ -1,0 +1,14 @@
+public class SignatureCard extends CreditCard {
+    public int companions;    
+    public SignatureCard(String cardHolder, String accountNo) {
+        super(cardHolder, accountNo, 200);
+        this.companions = 5;
+    }    
+    public void spend(int amount) {
+        this.rewardPoints += (amount/100)*4;
+    }    
+    public void cardDetails() {
+        super.cardDetails();
+        System.out.println("Companions allowed at lounge: " + this.companions);
+    }
+}

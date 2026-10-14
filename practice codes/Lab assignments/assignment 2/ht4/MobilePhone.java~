@@ -1,0 +1,38 @@
+public class MobilePhone{
+    public int concap;
+    public int count = 0;
+    public String[] name;
+    public int[] num;
+    
+    public void setContactCapacity(int n){
+        concap = n;
+        name = new String[n];
+        num = new int[n];
+    }
+    
+    public void addContact(String s, int n){
+        name[count] = s;
+        num[count] = n;
+        count++;
+        System.out.println("The contact of " + s + " is added.");
+    }
+    
+    public void details(){
+        System.out.println("Total Contacts: "+count);
+        System.out.println("Contact List:");
+        for(int i = 0; i<=count; i++){
+            System.out.println(name[i] + ":" + num[i]);
+        }
+    }
+    
+    public void makeCall(int n){
+        for(int i = 0; i<=count; i++){
+            if(num[i]==n){
+                System.out.println("Calling "+name[i]+" . . .")
+            }
+            else{
+                System.out.println("Calling "+n+" . . .")
+            }
+        }
+    }
+}

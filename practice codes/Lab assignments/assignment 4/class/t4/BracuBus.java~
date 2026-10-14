@@ -1,0 +1,19 @@
+public class BracuBus{
+public String route;
+public int max = 2;
+public BracuStudent[] std;
+public int count;
+
+public BracuBus(String s){
+route = s;
+std = new BracuStudent[2];    
+}
+
+public BracuBus(String s, int n){
+route = s;
+max = n;
+std = new BracuStudent[n];    
+}
+
+
+}

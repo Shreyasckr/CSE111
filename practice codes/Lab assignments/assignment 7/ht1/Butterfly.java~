@@ -1,0 +1,24 @@
+public class Butterfly extends Caterpillar{
+    public Butterfly(String s, int n){
+        super(s, n);
+    }
+    
+    public void transform(){
+        System.out.println("Caterpillar transforms into Butterfly");
+    }
+    
+    public void eat(int n){
+        for(int n = 0; i<n; i++){
+            if(energy-5<0){
+                System.out.println("Butterfly lost energy while flying and absorbed nectar");
+            }
+            energy += 5;
+        }
+    }
+    
+    public void showDetails(){
+        System.out.println("Food: " + food);
+        System.out.println("Age: " + age);
+        System.out.println("Energy: " + energy+" joules");
+    }
+}

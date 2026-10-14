@@ -1,0 +1,21 @@
+public class Player{
+    private String name;
+    private int age;
+    private int match;
+    
+    public Player(string s, int n, int m){
+        name = s;
+        age = n;
+        match = m;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    public String getAge(){
+        return age;
+    }
+    public String getMatch(){
+        return match;
+    }
+}

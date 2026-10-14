@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class cfProb5{
+    public static void main(String[] args){
+        Scanner sc  = new Scanner(System.in);
+        int M = sc.nextInt();
+        int N = sc.nextInt();
+        int dominos = 0;
+        int area = M*N;
+        for(int i = 2; i<=M; i++){
+            for(int j = 1; j<=N; j++){
+                if(area>=i*j){
+                    dominos++;
+                }
+            }
+        }
+        System.out.println(dominos);
+    }
+}

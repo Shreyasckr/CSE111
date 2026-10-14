@@ -1,0 +1,49 @@
+public class TaxiLagbe{
+    public String num;
+    public int passenger = 0;
+    public int total;
+    public String area = "Khulna";
+    public String[] pass = new String[4];
+    
+    public TaxiLagbe(String s1, String s2){
+        num = s1;
+        area = s2;
+        System.out.println("A new taxi has been created");
+    }
+    
+    public TaxiLagbe(String s){
+        num= s;
+        System.out.println("A new taxi has been created");
+    }
+    
+    public void addPassenger(String s, int n){
+        if(passenger<4){
+            pass[passenger] = s;
+            passenger++;
+            System.out.println("Dear "+s+"! Welcome to TaxiLagbe");
+            total += n;
+        }
+        else{
+            System.out.println("Taxi Full! No more passengers can be added");
+        }
+    }
+    
+    public void addPassenger(String s1, int n1, String s2, int n2){
+        addPassenger(s1, n1);
+        addPassenger(s2, n2);
+    }
+    
+    public void printDetails(){
+        System.out.println("Taxi number: "+num);
+        System.out.println("This taxi can cover "+area+" area");
+        System.out.println("Total passenger: "+passenger);
+        System.out.println("Passenger List:");
+        if(passenger>0){
+            for(int i = 0;i<passenger; i++){
+                System.out.print(pass[i]+" ");
+            }
+        }
+        System.out.println();
+        System.out.println("Total collected fare: "+total+" Taka");
+    }
+}

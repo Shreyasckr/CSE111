@@ -1,0 +1,8 @@
+public class PlasticBottle extends Waste{
+    public int ml;
+    
+    public PlasticBottle(String s, int n){
+        super(s);
+        ml = n;
+    }
+}

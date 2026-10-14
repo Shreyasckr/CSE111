@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class ass1task2prev{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        String str1 = sc.next();
+        String str2 = sc.next();
+        int sum = 0;
+        char ch;
+        for(int i = 0;i<str1.length();i++){
+            ch = str1.charAt(i);
+            if(ch >= 'A' && ch <= 'Z'){
+                sum += ch;
+            }
+            if(ch >= 'a' && ch <= 'z'){
+                sum += ch;
+            }
+        }
+        for(int i = 0;i<str2.length();i++){
+            ch = str2.charAt(i);
+            if(ch >= 'A' && ch <= 'Z'){
+                sum += ch;
+            }
+            if(ch >= 'a' && ch <= 'z'){
+                sum += ch;
+            }
+        }
+        System.out.println(str1+" "+str2);
+        System.out.println(sum);
+    }
+}

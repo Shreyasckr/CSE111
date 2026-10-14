@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base Converter</title>
+    <style>
+        /* CSS goes here inside <style> tags */
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .result-box {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e7f3fe;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Base Converter</h2>
+        
+        <label>Number (Decimal):</label>
+        <input type="number" id="numInput" placeholder="Enter number">
+
+        <label>Target Base (2-16):</label>
+        <input type="number" id="baseInput" placeholder="Enter base">
+
+        <button onclick="convert()">Convert</button>
+
+        <div class="result-box">
+            <strong>Result: </strong> <span id="result">---</span>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript goes here inside <script> tags
+        function convert() {
+            let n = parseInt(document.getElementById("numInput").value);
+            let b = parseInt(document.getElementById("baseInput").value);
+            const resultDisplay = document.getElementById("result");
+
+            if (isNaN(n) || isNaN(b) || b < 2 || b > 16) {
+                resultDisplay.innerText = "Invalid Input";
+                return;
+            }
+
+            let chars = "0123456789ABCDEF";
+            let result = "";
+
+            if (n === 0) result = "0";
+
+            while (n > 0) {
+                let remainder = n % b;
+                result = chars.charAt(remainder) + result;
+                n = Math.floor(n / b); 
+            }
+
+            resultDisplay.innerText = result;
+        }
+    </script>
+
+</body>
+</html>

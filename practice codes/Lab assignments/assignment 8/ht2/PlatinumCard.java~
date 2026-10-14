@@ -1,0 +1,8 @@
+public class PlatinumCard extends CreditCard{
+    public PlatinumCard(String cardHolder, String accountNo){
+        super(cardHolder, accountNo, 100);
+    }
+    public void spend(int amount){
+        this.rewardPoints += (amount/100)*2;
+    }
+}

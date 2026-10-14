@@ -1,0 +1,55 @@
+public class Student{
+    
+    public static int total_students = 0;
+    public static double total_marks = 0.0;
+    public static int id = 1;
+    
+    public String name;
+    public int code = 0;
+    public int trace = 0;
+    public int ID;
+    
+    public Student(String s){
+        name = s;
+        total_students++;
+        ID = id++;
+    }
+    public Student(String s, int n, int m){
+        name = s;
+        total_students++;
+        ID = id++;
+        setCodingMarks(n);
+        setTracingMarks(m);
+    }
+    
+    public void setCodingMarks(int n){
+        code += n;
+        total_marks += n;
+    }
+    public void setTracingMarks(int n){
+        trace += n;
+        total_marks += n;
+    }
+    public void individualDetail(){ 
+        System.out.println("Name: "+name);
+        System.out.println("ID: "+ID);
+        System.out.println("Coding Marks: "+code);
+        System.out.println("Tracing Marks: "+trace);
+        int total = code+trace;
+        if(total>=50){
+            System.out.println(name+" has passed with "+total+" marks");
+        }
+        else{
+            System.out.println(name+" has failed with "+total+" marks");
+        }
+    }
+    
+    public static double averageMarks(){
+        if(total_students == 0){
+            return 0.0;
+        }
+        else{
+            return total_marks/total_students;
+        }
+    }
+}

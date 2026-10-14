@@ -1,0 +1,51 @@
+public class ParkingLot{
+    public static int capacity = 4;
+    public static ParkingLot[] cars = new ParkingLot[4];
+    public static int count = 0;
+    public static int totalfines = 0;
+    public static int totalCar = 0;
+    
+    public String car;
+    public String owner;
+    public int time;
+    public int fine;
+    
+    public static int spotsAvailable(){
+        return 4-totalCar;
+    }
+    
+    public ParkingLot(String s1, String s2, int n){
+        car = s1;
+        owner = s2;
+        time = n;
+    }
+    
+    public static void park(ParkingLot obj){
+        if(count == 4){
+            System.out.println("Lot is full! Cannot park "+ obj.car);
+        }
+        else{
+            cars[count++] = this;
+            totalCar++;
+            System.out.println(obj.name+" parked by "+obj.owner); 
+        }
+    }
+    
+    public static void leave(String s){
+        boolean found = false;
+        for(int i = 0; i<count; i++){
+            if(s.equals(cars[i].car)){
+                found = true;
+                if(cars[i].time>3){
+                fine = (cars[i].time - 3)*50;
+                totalfines += fine;
+                }
+                cars[i] = null;
+                totalCar--;
+            }
+        }
+        if(!found){
+            System.out.println("Car not found");
+        }
+    }
+}

@@ -1,0 +1,17 @@
+public class Cargo{
+    private String name;
+    private int weight;
+    
+    public Cargo(String s, int n){
+    name = s;
+    weight = n;
+    }
+    
+    public String getName(){
+        return name;
+    }
+    
+    public int getWeight(){
+        return weight;
+    }
+}

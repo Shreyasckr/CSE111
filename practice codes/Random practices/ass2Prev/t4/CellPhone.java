@@ -1,0 +1,23 @@
+public class CellPhone{
+    public String model = "unknown";
+    public int ConStr = 0;
+    public String str = "";
+    public void printDetails(){
+        System.out.println("Phone model "+model);
+        System.out.println("Contacts Stored "+ ConStr);
+        if(!str.equals("")){
+            System.out.println("Stored Contacts:");
+            System.out.print(str);
+        }
+    }
+    public void storeContact(String s){
+        if(ConStr == 3){
+            System.out.println("Memory full. New contact can't be stored.");
+        }
+        else{
+            str += s + "\n";
+            ConStr++;
+            System.out.println("Contact Stored");
+        }
+    }
+}

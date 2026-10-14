@@ -1,0 +1,59 @@
+public class Bakery{
+    public String name;
+    public int cap = 7;
+    public String[] items;
+    public int[] con;
+    public int count = 0;
+    
+    public Bakery(String s, int n){
+        name = s;
+        cap = n;
+        items = new String[n];
+        con = new int[n];
+    }
+    
+    public Bakery(String s){
+        name = s;
+        cap = 7;
+        items = new String[7];
+        con = new int[7];
+    }
+    
+    public void addItems(String s, int n){
+        items[count] = s;
+        con[count] = n;
+        count++;
+        System.out.println(n+" "+s+" are added.");
+    }
+    
+    public void details(){
+        System.out.println("Bakery name: "+name);
+        System.out.println("Product Capacity: "+cap);
+        System.out.println("Product Info:");
+        for(int i = 0; i<count; i++){
+            System.out.println((i+1) +")"+items[i]+": "+con[i]+" pieces");
+        }
+    } 
+    public void sellItems(String s, int n){
+        boolean found = false;
+        int k = 0;
+        for(int i = 0; i<count; i++){
+            if(items[i].equals(s)){
+                found = true;
+                k = i;
+            }
+        }
+        if(found){
+            if(con[k]-n>=0){
+                System.out.println(n+" "+items[k]+" are sold.");
+                con[k] -= n;
+            }
+            else{
+                System.out.println("Sorry! that many products are not available.");
+            }
+        }
+        else{
+            System.out.println("Item not found.");
+        }
+    }
+}

@@ -1,0 +1,13 @@
+public class Concert{
+public String venue;
+public String time;
+public String[] artists = new String[5];
+public int count = 0;
+public static int total = 0;
+
+
+public Concert(String s1, String s2){
+venue = s1;
+time = s2;
+}
+}

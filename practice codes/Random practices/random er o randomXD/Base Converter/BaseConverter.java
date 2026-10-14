@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class BaseConverter{
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number:");
+        int n = sc.nextInt();
+        System.out.print("Enter base:");
+        int b = sc.nextInt();
+        String chars = "0123456789ABCDEF";
+        String result = "";
+        while(n > 0){
+            int remainder = n % b;
+            result = chars.charAt(remainder) + result;
+            n = n / b;
+        }
+        System.out.println("Result: " + result);
+    }
+}
+
+//from decimal to other bases for now

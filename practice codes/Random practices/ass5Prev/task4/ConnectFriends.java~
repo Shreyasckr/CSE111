@@ -1,0 +1,61 @@
+public class ConnectFriends{
+    public String name;
+    public int max = 2;
+    public String[] frnd;
+    public int count;
+    
+    public ConnecctFriends(String s){
+        name = s;
+        frnd = new String[2];
+        System.out.prinln("Welcome to ConnectFriends, "+name);
+    }
+    
+    public ConnecctFriends(String s, int n){
+        name = s;
+        max = n;
+        frnd = new String[n];
+        System.out.prinln("Welcome to ConnectFriends, "+name);
+    }
+    
+    public void sendFriendRequest(ConnectFriends obj){
+        if(count == max){
+            System.out.println(name+" has reached the friend request limit!");
+        }
+        else{
+            frnd[count++] = obj.name;
+            System.out.prinln(name+" sent a friend request to "+obj.name);
+        }
+    }
+    
+    public void sendFriendRequest(ConnectFriends obj1, ConnectFriends obj2){
+        sendFriendRequest(obj1);
+        sendFriendRequest(obj2);
+    }
+    
+    public void removeRequest(String s){
+        boolean found = false;
+        for(int i = 0; i<count; i++){
+            if(frnd[i].equals(s)){
+                found = true;
+                frnd[i] = null;
+                System.out.prinln("Reuqest to add "+s+" is removed for "+name);
+            }
+        }
+        if(!found){
+            System.out.prinln(s+" is not in "+name+"'s sent request list.");
+        }
+    }
+    
+    public void showDetails(){
+        System.out.prinln("User Name: "+name);
+        System.out.prinln("Maximum number of Sent Friend Request: "max);
+        System.out.prinln("Total Friends Request: "+count-1);
+        System.out.print("Sent Friends Request: ");
+        for(int i = 0; i<count; i++){
+            if(frnd[i] != null){
+                System.out.print(frnd[i]+" ");
+            }
+        }
+        System.out.println();
+    }
+}

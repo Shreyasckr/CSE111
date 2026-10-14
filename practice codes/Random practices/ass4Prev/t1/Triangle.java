@@ -1,0 +1,33 @@
+public class Triangle{
+    public int s1;
+    public int s2;
+    public int s3;
+    public int pr;
+    
+    public Triangle(int a, int b, int c){
+        s1 = a;
+        s2 = b;
+        s3 = c;
+        pr = a+b+c;
+    }
+    
+    public void triangleDetails(){
+        System.out.println(s1+" "+s2+" "+s3+"\n"+pr);
+    }
+    
+    public String printTriangleType(){
+        if(s1==s2 && s2==s3){
+            return "Equilateral";
+        }
+        else if(s1!=s2 && s2!=s3){
+            return "Scalene";
+        }
+        else{
+            return "Isosceles";
+        }
+    }
+    
+    public void compareTriangles(Triangle obj){
+    if(this == obj)
+    }
+}

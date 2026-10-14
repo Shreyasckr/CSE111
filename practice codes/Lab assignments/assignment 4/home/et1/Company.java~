@@ -1,0 +1,8 @@
+public class Company{
+public String name  = "ABC Company";
+public int n;
+public Employee[] empl = new Employee[3];
+public int count = 0;
+
+
+}

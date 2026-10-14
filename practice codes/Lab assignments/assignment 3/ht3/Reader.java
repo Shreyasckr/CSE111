@@ -1,0 +1,53 @@
+public class Reader{
+    public String name = "New user";
+    public int cap = 2;
+    public String[] book;
+    public int books = 0;
+    
+    public Reader(String s){
+        name = s;
+        System.out.println("A new reader is created!");
+        book = new String[2];
+    }
+    
+    public Reader(String s, int n){
+        name = s;
+        cap = n;
+        System.out.println("A new reader is created!");
+        book = new String[n];
+    }
+    
+    public void addBook(String s){
+        if(books<cap){
+            book[books] = s;
+            books++;
+        }
+        else{
+            System.out.println("No more capacity");
+        }
+    }
+    
+    public void readerInfo(){
+        System.out.println("Name: "+name);
+        System.out.println("Capacity: "+cap);
+        System.out.println("Books:");
+        if(books==0){
+            System.out.println("No books added yet");
+        }
+        else{
+            for(int i = 0; i<books; i++){
+                System.out.println("Book "+(i+1)+": "+book[i]);
+            }
+        }
+    }
+    
+    public void updateCapacity(int n){
+        String[] newBook = new String[n];
+        for(int i = 0; i < books; i++){
+            newBook[i] = book[i];
+        }
+        book = newBook;
+        cap = n;
+        System.out.println("Capacity has changed to " + n);
+    }
+}

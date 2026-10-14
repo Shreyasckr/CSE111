@@ -1,0 +1,11 @@
+public class PartTimeStaff extends Employee{
+    public int hour;
+    
+    public Staff(String s, int n, int m, int o){
+        super(s, n, m);
+        hour = o;
+    }
+    public String details() {
+        return "ID: " + id + " | Name: " + name+" | Type: Part-Time | Hours: "+hour;
+    }
+}
